@@ -116,6 +116,8 @@ class MangaTranslatorLocal(MangaTranslator):
             config = Config(**config_dict)
         else:
             config = Config()
+        if params.get("chatmock_model"):
+            config.translator.chatmock_model = params["chatmock_model"]
         # Handle format
         file_ext = params.get('format')
         if params.get('save_quality', 100) < 100:

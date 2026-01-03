@@ -760,6 +760,7 @@ shared              以 API 模式运行
         "deepseek",
         "groq",
         "custom_openai",
+        "chatmock",
         "offline",
         "nllb",
         "nllb_big",
@@ -814,6 +815,18 @@ shared              以 API 模式运行
           ],
           "default": null,
           "title": "Gpt Config"
+        },
+        "chatmock_model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Chatmock Model"
         },
         "translator_chain": {
           "anyOf": [
@@ -1112,6 +1125,7 @@ FIL: 菲律宾语（他加禄语）
 | papago        |         |         |                                                          |  
 | sakura        |         |         | 需要 `SAKURA_API_BASE`                               |  
 | custom_openai |         |         | 需要 `CUSTOM_OPENAI_API_BASE` `CUSTOM_OPENAI_MODEL` |  
+| chatmock      |         |         | 无需 API Key，使用 `http://188.166.251.233:8000/v1`  |  
 | offline       |         | ✔️      | 为语言选择最合适的离线翻译器    |  
 | nllb          |         | ✔️      | 离线翻译模型                                 |  
 | nllb_big      |         | ✔️      | 更大的NLLB模型                               |  
@@ -1137,6 +1151,39 @@ DEEPL_AUTH_KEY=xxxxxxxx...
 -   Offline：翻译器是否可以离线使用。
 
 -   Sugoi 由 mingshiba 创建，请在 <https://www.patreon.com/mingshiba> 支持他
+
+#### ChatMock（OpenAI 兼容，无需 API Key）
+
+-   Base URL: `http://188.166.251.233:8000/v1`
+-   默认模型: `gpt-5.2`
+-   可用模型:
+    -   `gpt-5`
+    -   `gpt-5.1`
+    -   `gpt-5.2`
+    -   `gpt-5-codex`
+    -   `gpt-5.2-codex`
+    -   `gpt-5.1-codex`
+    -   `gpt-5.1-codex-max`
+    -   `gpt-5.1-codex-mini`
+    -   `codex-mini`
+
+在配置文件中启用 ChatMock（可选覆盖模型）：
+
+```json
+{
+  "translator": {
+    "translator": "chatmock",
+    "target_lang": "ENG",
+    "chatmock_model": "gpt-5.2"
+  }
+}
+```
+
+CLI 覆盖模型（翻译器仍来自配置）：
+
+```bash
+python -m manga_translator local -i <path> --config-file <config.json> --chatmock-model gpt-5.1
+```
 
 #### 术语表
 

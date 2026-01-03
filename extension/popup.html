@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>Manga Translator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Manga Translator</h1>
+      <button id="translate-visible">Translate Visible Images</button>
+      <label class="toggle">
+        <input type="checkbox" id="auto-translate" />
+        <span>Auto-Translate On Scroll</span>
+      </label>
+      <button id="pause-queue">Stop / Pause</button>
+      <button id="toggle-original">Toggle Original/Translated</button>
+      <p class="hint">Alt+T toggles original/translated for processed images.</p>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

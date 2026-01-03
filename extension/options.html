@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="options.css" />
+    <title>Manga Translator Options</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Extension Options</h1>
+      <label for="backend-url">Backend base URL</label>
+      <input id="backend-url" type="url" placeholder="http://188.166.251.233:5003" />
+      <label class="toggle">
+        <input type="checkbox" id="auto-translate" />
+        <span>Enable auto-translate on scroll</span>
+      </label>
+      <button id="save">Save</button>
+      <p id="status"></p>
+    </div>
+    <script src="options.js"></script>
+  </body>
+</html>
