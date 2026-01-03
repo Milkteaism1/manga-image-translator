@@ -123,6 +123,7 @@ class Translator(str, Enum):
     gemini = "gemini"
     gemini_2stage = "gemini_2stage"
     custom_openai = "custom_openai"
+    chatmock = "chatmock"
     offline = "offline"
     nllb = "nllb"
     nllb_big = "nllb_big"
@@ -225,6 +226,8 @@ class TranslatorConfig(BaseModel):
     """Skip translation if source image is one of the provide languages, use comma to separate multiple languages. Example: JPN,ENG"""
     gpt_config: Optional[str] = None  # todo: no more path
     """Path to GPT config file, more info in README"""
+    chatmock_model: Optional[str] = None
+    """ChatMock model override (defaults to gpt-5.2)"""
     translator_chain: Optional[str] = None
     """Output of one translator goes in another. Example: --translator-chain "google:JPN;sugoi:ENG"."""
     selective_translation: Optional[str] = None

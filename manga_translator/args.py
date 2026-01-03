@@ -100,6 +100,8 @@ def general_parser(g_parser):
                         help='Use concurrent mode for batch translation - process each image separately instead of merging into large batches. Helps prevent model output truncation and hallucination.')
     g_parser.add_argument('--disable-memory-optimization', action='store_true',
                         help='Disable automatic memory optimization during processing')
+    g_parser.add_argument('--chatmock-model', default=None, type=str,
+                        help='ChatMock model override (default: gpt-5.2)')
 
 
 def reparse(arr: list):

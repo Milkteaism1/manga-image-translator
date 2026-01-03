@@ -767,6 +767,7 @@ An example config file can be found in example/config-example.json
         "deepseek",
         "groq",
         "custom_openai",
+        "chatmock",
         "offline",
         "nllb",
         "nllb_big",
@@ -821,6 +822,18 @@ An example config file can be found in example/config-example.json
           ],
           "default": null,
           "title": "Gpt Config"
+        },
+        "chatmock_model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Chatmock Model"
         },
         "translator_chain": {
           "anyOf": [
@@ -1119,6 +1132,7 @@ FIL: Filipino (Tagalog)
 | papago | | | |
 | sakura | | | Requires `SAKURA_API_BASE` |
 | custom_openai | | | Requires `CUSTOM_OPENAI_API_BASE` `CUSTOM_OPENAI_MODEL` |
+| chatmock | | | No API key required. Uses `http://188.166.251.233:8000/v1` |
 | offline | | ✔️ | Use the most suitable offline translator for the language|
 | nllb | | ✔️ | Offline translation model |
 | nllb_big | | ✔️ | Larger NLLB model |
@@ -1144,6 +1158,39 @@ DEEPL_AUTH_KEY=xxxxxxxx...
 -   Offline: Indicates whether the translator can be used offline.
 
 -   Sugoi is created by mingshiba, please support him at <https://www.patreon.com/mingshiba>
+
+#### ChatMock (OpenAI-compatible, no API key)
+
+-   Base URL: `http://188.166.251.233:8000/v1`
+-   Default model: `gpt-5.2`
+-   Available models:
+    -   `gpt-5`
+    -   `gpt-5.1`
+    -   `gpt-5.2`
+    -   `gpt-5-codex`
+    -   `gpt-5.2-codex`
+    -   `gpt-5.1-codex`
+    -   `gpt-5.1-codex-max`
+    -   `gpt-5.1-codex-mini`
+    -   `codex-mini`
+
+To enable ChatMock and override the model (optional), set it in your config file:
+
+```json
+{
+  "translator": {
+    "translator": "chatmock",
+    "target_lang": "ENG",
+    "chatmock_model": "gpt-5.2"
+  }
+}
+```
+
+Or override the model from the CLI (the translator still comes from config):
+
+```bash
+python -m manga_translator local -i <path> --config-file <config.json> --chatmock-model gpt-5.1
+```
 
 #### Glossary
 

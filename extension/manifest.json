@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Manga Image Translator",
+  "version": "0.1.0",
+  "description": "Translate manga/manhwa images on the page using a self-hosted manga-image-translator backend.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon.svg",
+      "32": "assets/icon.svg",
+      "48": "assets/icon.svg",
+      "128": "assets/icon.svg"
+    }
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "toggle-original-translated": {
+      "suggested_key": {
+        "default": "Alt+T"
+      },
+      "description": "Toggle original/translated images"
+    }
+  },
+  "icons": {
+    "16": "assets/icon.svg",
+    "32": "assets/icon.svg",
+    "48": "assets/icon.svg",
+    "128": "assets/icon.svg"
+  }
+}

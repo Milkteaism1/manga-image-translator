@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Manga translate">
+  <rect width="128" height="128" rx="20" fill="#0f172a"/>
+  <path d="M32 36h64v12H32zm0 22h44v12H32zm0 22h64v12H32z" fill="#f8fafc"/>
+  <circle cx="92" cy="58" r="10" fill="#38bdf8"/>
+  <path d="M90 52h4v12h-4z" fill="#0f172a"/>
+  <path d="M86 58h12v4H86z" fill="#0f172a"/>
+</svg>
